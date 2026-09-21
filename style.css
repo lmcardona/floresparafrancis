@@ -1983,3 +1983,97 @@ body {
     opacity: 1;
   }
 }
+
+.dedication {
+  position: fixed;
+  top: 9vmin;
+  left: 50%;
+  z-index: 300;
+  width: max-content;
+  max-width: 90vw;
+  padding: 0.25em 0.6em;
+  color: #fff8c7;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 8vmin, 6rem);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-shadow:
+    0 0 0.12em #fff,
+    0 0 0.35em #ffd43b,
+    0 0 0.75em rgba(255, 178, 0, 0.9);
+  transform: translateX(-50%) translateY(-1.5rem) scale(0.82);
+  opacity: 0;
+  pointer-events: none;
+  animation:
+    dedication-in 1.5s 4.8s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    dedication-float 4s 6.3s ease-in-out infinite;
+}
+
+@keyframes dedication-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-1.5rem) scale(0.82);
+    filter: blur(0.4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes dedication-float {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-0.6rem) scale(1.015);
+  }
+}
+
+.dedication-subtitle {
+  position: fixed;
+  top: 23vmin;
+  left: 50%;
+  z-index: 300;
+  width: min(90vw, 42rem);
+  color: rgba(255, 248, 199, 0.92);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2.7vmin, 1.6rem);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow: 0 0 0.7em rgba(255, 196, 55, 0.85);
+  transform: translateX(-50%) translateY(-0.75rem);
+  opacity: 0;
+  pointer-events: none;
+  animation: subtitle-in 1.3s 6.4s ease-out forwards;
+}
+
+@keyframes subtitle-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-0.75rem);
+    filter: blur(0.25rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .dedication {
+    top: 12vmin;
+    letter-spacing: 0.02em;
+  }
+
+  .dedication-subtitle {
+    top: 27vmin;
+  }
+}
